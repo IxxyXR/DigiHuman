@@ -9,6 +9,7 @@ import os
 import cv2
 import uuid
 import mimetypes
+import shutil
 import pose_estimator
 # import mocap
 import mediaPipeFace
@@ -47,8 +48,7 @@ LABEL_FOLDER = os.path.join(os.path.dirname(__file__), "dataset/val_label")
 verbose = True
 
 def copy_file(old, new):
-    command_string = "cp " + old + " " + new
-    subprocess.check_output(command_string.split(" "))
+    shutil.copy2(old, new)
 
 def make_processable(greyscale_fname, output_color_file):
     # Inst folder

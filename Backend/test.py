@@ -18,6 +18,10 @@ from util.visualizer import Visualizer
 
 def run(verbose=False):
     opt = TestOptions().parse(verbose)
+    # Match the provided pretrained checkpoint tensor shapes.
+    opt.contain_dontcare_label = False
+    opt.no_instance = True
+    opt.semantic_nc = opt.label_nc
 
     dataset_name = "coco"
     dataset_filename = "data." + dataset_name + "_dataset"
